@@ -3,17 +3,16 @@
 namespace AppBundle\Controller;
 
 use AppBundle\Entity\categories;
-use CategoriesType;
+use AppBundle\Form\CategoriesType;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
-use Symfony\Component\BrowserKit\Request;
+use Symfony\Component\HttpFoundation\Request;
 
 class CategorieController extends Controller
 {
     /**
      * @Route("/addCategorie")
-     * @param \Symfony\Component\BrowserKit\Request $request
-     * @return \Symfony\Component\HttpFoundation\RedirectResponse|\Symfony\Component\HttpFoundation\Response
+     *
      */
     public function addCategorieAction(Request $request)
     {
@@ -45,12 +44,12 @@ class CategorieController extends Controller
     }
 
     /**
-     * @Route("/retrieveAllCategorie")
+     * @Route("/retrieveAllCategorie", name="retrieveAllCategorie")
      */
     public function retrieveAllCategorieAction()
     {
         $categorie = $this->getDoctrine()->getRepository('AppBundle:categories')->findAll();
-        return $this->render('AppBundle:Categorie:retrieve_all_categorie.html.twig', array(
+        return $this->render('AppBundle:Categorie:retrieve_all_categorie.html.twig', array('categorie' => $categorie
             // ...
         ));
     }

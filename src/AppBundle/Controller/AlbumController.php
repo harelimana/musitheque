@@ -16,7 +16,7 @@ class AlbumController extends Controller
     public function addAlbumAction(Request $request)
     {
         $album = new albums;
-        $form = $this->createForm(AlbumsType::class, $event);
+        $form = $this->createForm(AlbumsType::class, $album);
         
         $form->handleRequest($request);
     
@@ -27,7 +27,7 @@ class AlbumController extends Controller
             $this->addflash('notice', 'Album ajouté');
             return $this->redirectToroute('retrieveAllAlbum');
         }
-        return $this->render('AppBundle:Album:add_album.html.twig', array('form'=>$form->createView()
+        return $this->render('AppBundle:Album:add_album.html.twig', array('form' => $form->createView()
             // ...
         ));
     }
@@ -43,7 +43,7 @@ class AlbumController extends Controller
     }
 
     /**
-     * @Route("/retrieveAllAlbum")
+     * @Route("/retrieveAllAlbum",name="retrieveAllAlbum")
      */
     public function retrieveAllAlbumAction()
     {

@@ -4,7 +4,7 @@
 
 {% block body %}
 <h1>Welcome to the Categorie:retrieveAllCategorie page</h1>
-    {% for c in categories %}
+    {% for c in categorie %}
         <div class="jumbotron">
             <p>{{c.nom}}</p>
             <p>{{c.description}}</p>
@@ -12,7 +12,7 @@
             <p>Albums liés:</p>
             {% for album in c.albums %}
                 <ul>
-                    <li>{{ album.nom }}</li>
+                    <li>{{ album.title }}</li>
                 </ul>
             {% endfor %}
 
