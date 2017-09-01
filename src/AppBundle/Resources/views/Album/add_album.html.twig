@@ -1,0 +1,15 @@
+{% extends "::base.html.twig" %}
+
+{% block title %}AppBundle:Album:addAlbum{% endblock %}
+
+{% block body %}
+<h1>Welcome to the Album:addAlbum page</h1>
+    <h2> class="pageheader">Ajout d'album</h2>
+    {{form_start(form)}}
+    {{form_widget(form)}}
+    {{ form_row(form.title) }}
+    {{ form_row(form.release_date) }}
+    {{ form_row(form.album_art) }}
+    <button type="submit">Add Album !</button>
+    {{form_end(form)}}
+{% endblock %}

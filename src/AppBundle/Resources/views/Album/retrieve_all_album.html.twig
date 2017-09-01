@@ -1,0 +1,21 @@
+{% extends "::base.html.twig" %}
+
+{% block title %}AppBundle:Album:retrieveAllAlbum{% endblock %}
+
+{% block body %}
+<h1>Welcome to the Album:retrieveAllAlbum page</h1>
+    {% for a in albums %}
+        <div class="jumbotron">
+            <p>{{a.title}}</p>
+            <p>{{a.release_date}}</p>
+            <a href="/supprimer_album/{{c.id}}" class="btn btn-danger pull-right">Supprimer</a></td>
+            <p>Artistes liés:</p>
+            {% for artist in a.artists %}
+                <ul>
+                    <li>{{ artist.name }}</li>
+                </ul>
+            {% endfor %}
+
+        </div>
+    {% endfor%}
+{% endblock %}
